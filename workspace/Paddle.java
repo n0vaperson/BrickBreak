@@ -1,3 +1,6 @@
+//Author: Roi Porat-Shliom
+//Date: 12/12/2024
+//Brief Description: Class paddle creates the paddle object in the Brick Break game and allows its horizonal motion and speed
 import java.awt.*;
 
 public class Paddle {
@@ -9,7 +12,9 @@ public class Paddle {
 	private int height;
 	private int xVel;
 	
-	//Constructor:
+//Constructor:
+//Precondition: none
+//Postcondition: instance variables are assigned the values of the inputted parameters
 	public Paddle(int xPos, int yPos, int width, int height)
 	{
 		this.xPos = xPos;
@@ -18,7 +23,6 @@ public class Paddle {
 		this.height = height;
 	}
 	
-	//Methods:
 
 //Getters and setters:
 	public int getX()
@@ -56,12 +60,18 @@ public class Paddle {
 		this.xVel = xVel;
 	}
 
+//Methods:
+
+//Precondition: g cannot be null
+//Postcondition: paints the object g white in a rectangular shape
 	public void draw(Graphics g)
 	{
 		g.setColor(Color.white);
 		g.fillRect(xPos, yPos, width, height);
 	}
 	
+//Precondition: addVel cannot be null
+//Postcondition: xVel changes in accordance to addVel. If addVel is greater than 4 or less than -4, xVel is assigned 4 or -4, respectively	
 	public void addVelocity(int addVel)
 	{
 		xVel+=addVel;
@@ -73,6 +83,8 @@ public class Paddle {
 		}
 	}
 
+//Precondition: none
+//Postcondition: xVel is added to xPos which moves the paddle object left/right depending on xVel's value 
 	public void move()
 	{
 			xPos+=xVel;		
